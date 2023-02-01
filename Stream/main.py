@@ -52,9 +52,9 @@ if __name__ == "__main__":
     enter = input("Amazing, when you are ready to begin the experiment press enter.")
 
     print("Starting training module")
-    numTrials = 60
-    trialLength = 5
-    restLength = 3
+    numTrials = 80
+    trialLength = 3
+    restLength = 2
     experiment = Experiment(numTrials, trialLength, restLength, int(isMotorMovementExperiment))
     experiment.runExperiment()
     experiment.cleanAndSaveData(name)

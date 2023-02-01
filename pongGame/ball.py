@@ -1,6 +1,7 @@
 import pygame
-from random import randint
+from random import randint, uniform
 from constants import BLACK
+import math
 
 class Ball(pygame.sprite.Sprite):
 
@@ -15,7 +16,7 @@ class Ball(pygame.sprite.Sprite):
         pygame.draw.rect(self.image, color, [0, 0, width, height])
 
         # initialize random velocity
-        self.velocity = [randint(2,6), randint(0,8)]
+        self.velocity = [uniform(2,6), uniform(0,5)]
 
         self.rect = self.image.get_rect()
 
@@ -24,5 +25,8 @@ class Ball(pygame.sprite.Sprite):
         self.rect.y += self.velocity[1]
 
     def bounce(self):
-        self.velocity[0] = -self.velocity[0]
-        self.velocity[1] = randint(-8,8)
+        self.velocity[1] = -self.velocity[1]
+        newYvelocity = self.velocity[0] + uniform(-2,2)
+        if abs(newYvelocity) > 5:
+            newYvelocity += -1 if (newYvelocity >= 0) else 1
+        self.velocity[0] = newYvelocity

@@ -1,5 +1,5 @@
 import pygame
-from constants import BLACK, SCREEN_HEIGHT
+from constants import BLACK, SCREEN_HEIGHT, SCREEN_WIDTH
 
 class Paddle(pygame.sprite.Sprite):
     def __init__(self, color, width, height):
@@ -16,14 +16,13 @@ class Paddle(pygame.sprite.Sprite):
 
         self.rect = self.image.get_rect()
     
-    def moveUp(self, pixels):
-        self.rect.y -= pixels
-        if self.rect.y < 0:
-            self.rect.y = 0
+    def moveRight(self, pixels):
+        self.rect.x += pixels
+        if self.rect.x + self.rect.size[0] > SCREEN_WIDTH:
+            self.rect.x = SCREEN_WIDTH - self.rect.size[0]
 
     
-    def moveDown(self, pixels):
-        self.rect.y += pixels
-        if self.rect.y + self.rect.size[1] > SCREEN_HEIGHT:
-            self.rect.y = SCREEN_HEIGHT - self.rect.size[1]
-
+    def moveLeft(self, pixels):
+        self.rect.x -= pixels
+        if self.rect.x < 0:
+            self.rect.x = 0
