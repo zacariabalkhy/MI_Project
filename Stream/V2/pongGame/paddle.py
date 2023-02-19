@@ -1,5 +1,6 @@
 import pygame
-from constants import BLACK, SCREEN_HEIGHT, SCREEN_WIDTH
+
+from .constants import BLACK, SCREEN_HEIGHT, SCREEN_WIDTH
 
 class Paddle(pygame.sprite.Sprite):
     def __init__(self, color, width, height):

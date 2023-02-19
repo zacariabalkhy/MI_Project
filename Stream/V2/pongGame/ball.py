@@ -1,7 +1,8 @@
 import pygame
 from random import randint, uniform
-from constants import BLACK
 import math
+
+from .constants import BLACK
 
 class Ball(pygame.sprite.Sprite):
 
